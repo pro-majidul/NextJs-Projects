@@ -6,7 +6,7 @@ import React from 'react';
 const Aboutpage = () => {
     const route = useRouter() //conditionally kono kicu navigate korte caile amra etake use korte pari evabe 
 
-    const isuser = true;
+    const isuser = false    ;
     const handelNavigate = () => {
         if (isuser) {
             route.push('/about/address')
