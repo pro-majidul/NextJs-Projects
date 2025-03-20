@@ -10,7 +10,7 @@ const Navbar = () => {
         return <></>
     } else {
         return (
-            <div className='flex justify-center'>
+            <div className='flex justify-center py-3'>
                 <ul className='flex justify-between  container mx-auto px-10'>
                     <li><Link href='/'>Home</Link> </li>
                     <li><Link href='/about'>About </Link></li>

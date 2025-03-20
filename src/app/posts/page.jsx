@@ -1,27 +1,42 @@
-import React from 'react';
+"use client";
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
 
-export const PostedJobs = async () => {
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
-    const data = await res.json()
-    return data
-}
+const JobPost = () => {
+    const [jobs, setJobs] = useState([]);
 
-const Jobpost = async () => {
-    const posts = await PostedJobs()
-    return (
-        <div className='space-y-5'>
-            <h1> hello posted jobs</h1>
-            {
-                posts.map((singlepost) => {
-                    return (
-                        <div key={singlepost.id} >
-                            <p>Title : {singlepost.title}</p>
-                        </div>
-                    )
-                })
+    useEffect(() => {
+        const fetchJobs = async () => {
+            try {
+                const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+                const data = await res.json();
+                setJobs(data);
+            } catch (error) {
+                console.error("Error fetching jobs:", error);
             }
-        </div>
+        };
+
+        fetchJobs();
+    }, []);
+
+    return (
+        <section className='my-5 py-10'>
+
+            <div className='grid grid-cols-3 gap-5'>
+                {jobs.length > 0 ? (
+                    jobs.map((singlepost) => (
+                        <div key={singlepost.id} className='space-y-2 border p-3 rounded-xl'>
+                            <p className='text-xl font-bold'>Title: {singlepost.title}</p>
+                            <p className='text-xl font-normal'>body : {singlepost.body}</p>
+                            <Link href={`/posts/${singlepost.id}`} className='underline'>Details</Link>
+                        </div>
+                    ))
+                ) : (
+                    <p>Loading...</p>
+                )}
+            </div>
+        </section>
     );
 };
 
-export default Jobpost;
+export default JobPost;
