@@ -1,34 +1,30 @@
-"use client"
-
+import MealSearchInput from './components/MealSearchInput';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
-const AllMealsData = () => {
-    const [allmeals, setALlmeals] = useState([])
-    const [search, setSearch] = useState('')
 
-    const mealsdata = async () => {
+
+const AllMealsData = async ({ searchParams }) => {
+
+    const query = await searchParams;
+
+    const fetchmealdata = async () => {
         try {
-            const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
+            const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query.search}`)
             const data = await res.json();
-            setALlmeals(data.meals || [])
+            return data.meals
         } catch (err) {
             console.log(err)
         }
     }
 
-    useEffect(() => {
-        mealsdata()
-    }, [search])
+    const allmeals = await fetchmealdata()
+
     return (
         <section className='space-y-5'>
             <div className='flex items-center justify-center w-1/2 mx-auto'>
-                <input type="text"
 
-                    placeholder="Search for a meal..."
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    className="text-black w-full border p-2 rounded bg-white" />
+                <MealSearchInput></MealSearchInput>
             </div>
+
             <div className='grid grid-cols-4 gap-4 '>
                 {
                     allmeals?.map(singlemeal => {
