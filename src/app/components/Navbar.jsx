@@ -14,7 +14,7 @@ const Navbar = () => {
                 <ul className='flex justify-between  container mx-auto px-10'>
                     <li><Link href='/'>Home</Link> </li>
                     <li><Link href='/about'>About </Link></li>
-                    <li><Link href='/product'>Product</Link> </li>
+                    <li><Link href='/meals'>Meals</Link> </li>
                     <li><Link href='/contact'>Contact Us</Link></li>
                     <li><Link href='/posts'>Post</Link></li>
                 </ul>

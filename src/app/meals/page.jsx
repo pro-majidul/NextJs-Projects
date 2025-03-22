@@ -1,9 +1,9 @@
 import MealSearchInput from './components/MealSearchInput';
 import Image from 'next/image';
 export const metadata = {
-    title: "All Meals || Learning Nextjs",
+    title: "All Meals ",
     description: "Traying to learning nextJS as best as we can",
-  };
+};
 
 const AllMealsData = async ({ searchParams }) => {
 
@@ -23,7 +23,7 @@ const AllMealsData = async ({ searchParams }) => {
 
     return (
         <section className='space-y-5'>
-            <div className='flex items-center justify-center w-1/2 mx-auto'>
+            <div className='flex items-center justify-center '>
 
                 <MealSearchInput></MealSearchInput>
             </div>
@@ -33,17 +33,17 @@ const AllMealsData = async ({ searchParams }) => {
                     allmeals?.map(singlemeal => {
                         return (
                             <div className='border' key={singlemeal.idMeal}>
-                                <p className='text-2xl'>{singlemeal.strCategory}</p>
-                                <p className='text-xl'>{singlemeal.strCategory}</p>
-                                <p className='text-lg'>{singlemeal.strInstructions}</p>
-
                                 <Image
                                     src={singlemeal?.strMealThumb}
                                     width={500}
                                     height={500}
                                     alt="Meal Image"
-                                    unoptimized={true}
                                 />
+                                <p className='text-2xl'>{singlemeal.strCategory}</p>
+                                <p className='text-xl'>{singlemeal.strCategory}</p>
+                                <p className='text-lg'>{singlemeal.strInstructions}</p>
+
+
 
                             </div>
                         )
