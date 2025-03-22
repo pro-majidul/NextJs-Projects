@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
+
 const JobPost = () => {
     const [jobs, setJobs] = useState([]);
 

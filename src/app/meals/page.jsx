@@ -1,6 +1,9 @@
 import MealSearchInput from './components/MealSearchInput';
 import Image from 'next/image';
-
+export const metadata = {
+    title: "All Meals || Learning Nextjs",
+    description: "Traying to learning nextJS as best as we can",
+  };
 
 const AllMealsData = async ({ searchParams }) => {
 

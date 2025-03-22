@@ -1,12 +1,11 @@
 'use client'
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+    import { useRouter } from 'next/navigation';
 import React from 'react';
 
 const Aboutpage = () => {
     const route = useRouter() //conditionally kono kicu navigate korte caile amra etake use korte pari evabe 
 
-    const isuser = false    ;
+    const isuser = false;
     const handelNavigate = () => {
         if (isuser) {
             route.push('/about/address')
