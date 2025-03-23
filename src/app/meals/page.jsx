@@ -5,6 +5,12 @@ export const metadata = {
     description: "Traying to learning nextJS as best as we can",
 };
 
+import { Roboto } from 'next/font/google';
+
+const roboto = Roboto({
+    weight: ['400', '700', '800'],
+    subsets: ["latin"],
+})
 const AllMealsData = async ({ searchParams }) => {
 
     const query = await searchParams;
@@ -39,7 +45,7 @@ const AllMealsData = async ({ searchParams }) => {
                                     height={500}
                                     alt="Meal Image"
                                 />
-                                <p className='text-2xl'>{singlemeal.strCategory}</p>
+                                <p className={` text-3xl ${roboto.className}`}>{singlemeal.strCategory}</p>
                                 <p className='text-xl'>{singlemeal.strCategory}</p>
                                 <p className='text-lg'>{singlemeal.strInstructions}</p>
 
