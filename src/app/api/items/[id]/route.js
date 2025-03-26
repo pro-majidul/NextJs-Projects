@@ -20,6 +20,8 @@ export async function PATCH(request, { params }) {
     return Response.json({ result })
 }
 export async function DELETE(request, { params }) {
-    const data = await params
-    return Response.json({ data })
+    const { id } = await params
+    const filter = { _id: new ObjectId(id) }
+    const result = await dbConnect('items').deleteOne(filter)
+    return Response.json({ result })
 }
