@@ -1,20 +1,23 @@
-import { redirect } from 'next/navigation';
+// import { redirect } from 'next/navigation';
 import React from 'react';
+import dbConnect from '../lib/dbConnect';
 
-export const fetchData = async () => {
-    const res = await fetch('http://localhost:3000/api/items', {
-        cache: 'force-cache'
-    })
-    const data = await res.json();
-    return data
-}
+// export const fetchData = async () => {
+//     const res = await fetch('http://localhost:3000/api/items', {
+//         cache: 'force-cache'
+//     })
+//     const data = await res.json();
+//     return data
+// }
 
 const ProductsPage = async () => {
-    const datas = await fetchData() || []
+    // const datas = await fetchData() || [] 
+    // or 
+    const datas = await dbConnect('items').find({}).toArray() || []
     console.log(datas)
-    if (datas.length > 5) {
-        redirect('/')
-    }
+    // if (datas.length > 5) {
+    //     redirect('/')
+    // }
 
     return (
         <div className='place-items-center mt-2 space-y-4'>
