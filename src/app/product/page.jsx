@@ -1,6 +1,7 @@
 // import { redirect } from 'next/navigation';
 import React from 'react';
 import dbConnect from '../lib/dbConnect';
+import { getProducts } from '../actions/products/getProducts';
 
 // export const fetchData = async () => {
 //     const res = await fetch('http://localhost:3000/api/items', {
@@ -13,8 +14,10 @@ import dbConnect from '../lib/dbConnect';
 const ProductsPage = async () => {
     // const datas = await fetchData() || [] 
     // or 
-    const datas = await dbConnect('items').find({}).toArray() || []
-    console.log(datas)
+    // const datas = await dbConnect('items').find({}).toArray() || []
+    // or 
+    const datas = await getProducts()
+    // console.log(datas)
     // if (datas.length > 5) {
     //     redirect('/')
     // }

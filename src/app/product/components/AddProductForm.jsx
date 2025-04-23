@@ -1,5 +1,6 @@
 "use client"
 
+import { postSingleProducts } from "@/app/actions/products/postSingleProducts";
 import { useRouter } from "next/navigation";
 
 const AddProductForm = () => {
@@ -9,14 +10,15 @@ const AddProductForm = () => {
         const form = e.target;
         const category = form.product_name.value;
         const paylode = { category }
-        const res = await fetch('http://localhost:3000/api/items', {
-            method: "POST",
-            headers: {
-                "Content-Type": 'application/json'
-            },
-            body: JSON.stringify(paylode)
-        })
-        const data = await res.json()
+        // const res = await fetch('http://localhost:3000/api/items', {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": 'application/json'
+        //     },
+        //     body: JSON.stringify(paylode)
+        // })
+        // const data = await res.json()
+        const data = await postSingleProducts(paylode)
         if (data.insertedId) {
             form.reset()
             router.push('/product')

@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb";
 
 export async function GET(request, { params }) {
     const data = await params;
-    console.log(data.id)
+    // console.log(data.id)
     const result = await dbConnect('items').findOne({ _id: new ObjectId(data.id) })
     return Response.json( result )
 
