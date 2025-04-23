@@ -1,6 +1,6 @@
 "use server"
 
-import dbConnect from "@/app/lib/dbConnect"
+import dbConnect from "@/lib/dbConnect"
 import { revalidatePath } from "next/cache"
 
 export const postSingleProducts = async (postadeData) => {

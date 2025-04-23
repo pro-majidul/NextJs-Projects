@@ -1,9 +1,11 @@
-import React from 'react';
+"use client"
+import { useSession } from 'next-auth/react';
 
 const Home = () => {
+    const session = useSession()
     return (
         <div>
-            <h3>this is a Home Page</h3>
+            {JSON.stringify(session)}
         </div>
     );
 };

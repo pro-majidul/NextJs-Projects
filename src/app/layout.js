@@ -1,7 +1,8 @@
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import NextAuthSessionProvider from "@/providers/NextAuthSessionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,17 +36,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${poppins.className}  antialiased`}
-      >
-        <Navbar></Navbar>
-        <main className="min-h-screen  container mx-auto px-10">
-          {children}
-        </main>
-        <footer>
-          <Footer/>
-        </footer>
-      </body>
+      <NextAuthSessionProvider>
+        <body
+          className={`${poppins.className}  antialiased`}
+        >
+          <Navbar></Navbar>
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <footer>
+            <Footer />
+          </footer>
+        </body>
+      </NextAuthSessionProvider>
     </html>
   );
 }

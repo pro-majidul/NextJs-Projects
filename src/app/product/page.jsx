@@ -1,6 +1,6 @@
 // import { redirect } from 'next/navigation';
 import React from 'react';
-import dbConnect from '../lib/dbConnect';
+import dbConnect from '../../lib/dbConnect';
 import { getProducts } from '../actions/products/getProducts';
 
 // export const fetchData = async () => {
