@@ -1,8 +1,14 @@
-"use client"
-import { useSession } from 'next-auth/react';
+// "use client"
+"use server"
 
-const Home = () => {
-    const session = useSession()
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+
+// import { useSession } from 'next-auth/react';
+
+const Home = async () => {
+    // const session = useSession()
+    const session = await getServerSession(authOptions)
     return (
         <div>
             {JSON.stringify(session)}

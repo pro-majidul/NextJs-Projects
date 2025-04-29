@@ -21,7 +21,7 @@ const JobPost = () => {
     }, []);
 
     return (
-        <section className='my-5 py-10'>
+        <section className='my-5 py-10 container mx-auto'>
 
             <div className='grid grid-cols-3 gap-5'>
                 {jobs.length > 0 ? (

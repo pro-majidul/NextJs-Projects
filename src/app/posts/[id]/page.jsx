@@ -26,7 +26,7 @@ const SingleData = async ({ params }) => {
     const { id } = await params
     const getdata = await singlePostData(id)
     return (
-        <div>
+        <div className='container mx-auto'>
             <p className='text-3xl font-bold'>{getdata.title}</p>
             <p className='text-xl font-medium'>{getdata.body}</p>
         </div>

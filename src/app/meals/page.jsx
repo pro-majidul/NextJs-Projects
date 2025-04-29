@@ -28,7 +28,7 @@ const AllMealsData = async ({ searchParams }) => {
     const allmeals = await fetchmealdata()
 
     return (
-        <section className='space-y-5'>
+        <section className='space-y-5 container mx-auto'>
             <div className='flex items-center justify-center '>
 
                 <MealSearchInput></MealSearchInput>
